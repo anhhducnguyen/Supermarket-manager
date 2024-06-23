@@ -1,0 +1,343 @@
+﻿<Window x:Class="Login.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        xmlns:local="clr-namespace:Login"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown" Loaded="Window_Loaded">
+    <!--CornerRadius="20"-->
+    <Border Background="White"
+            BorderBrush="MediumBlue">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="35"/>
+                <ColumnDefinition Width="5"/>
+            </Grid.ColumnDefinitions>
+            <!--<TextBlock Text="ĐĂNG NHẬP"
+                       Foreground="DarkGray"
+                       FontSize="20"
+                       FontFamily="Bahnschrift Light Condensed"
+                       VerticalAlignment="Center"
+                       Margin="10,3,0,0"/>-->
+            <Button x:Name="btMinimize"
+                    BorderThickness="0"
+                    Content="-"
+                    Foreground="White"
+                    FontSize="16"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="1"
+                    Click="btMinimize_Click" Grid.ColumnSpan="2" Margin="7,0,28,0">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#0072BC"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0072BC"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="20" CornerRadius="1"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btQuit"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="2"
+                    Click="btQuit_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="Red"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Red"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="20" Height="20" CornerRadius="0"
+                                Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <StackPanel
+                        Grid.Row="1"
+                        Orientation="Vertical"
+                        Margin="424,0,10,20">
+                <TextBlock Text="ĐĂNG NHẬP PHẦN MỀM"
+                           Foreground="#0072bc"
+                           FontSize="25"
+                           FontFamily="Montserrat"
+                           TextAlignment="Center"
+                            Margin="0,5,0,30"
+                           />
+                <!--<TextBlock Text="Welcome!"
+                           Foreground="Black"
+                           FontWeight="Medium"
+                           TextWrapping="Wrap"
+                           FontSize="12"
+                           FontFamily="Montserrat"/>-->
+                <TextBlock Text="Hãy đăng nhập để tiếp tục..."
+                           Foreground="Black"
+                           FontWeight="DemiBold"
+                           TextWrapping="Wrap"
+                           FontSize="12"
+                           FontFamily="Montserrat"
+                           Margin="0,5,0,30"/>
+                <TextBlock Text="Tên tài khoản"
+                           Foreground="Black"
+                           FontWeight="Medium"
+                           FontSize="12"
+                           FontFamily="Montserrat"/>
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="User" Width="13" Height="13" Foreground="Black" VerticalAlignment="Center"/>
+                    <TextBox x:Name="txtUser"
+                         FontFamily="Montserrat"
+                         FontSize="13"
+                         FontWeight="Medium"
+                         Foreground="Black"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,1"
+                         Height="18"
+                         VerticalAlignment="Center"
+                         Margin="5,5,0,10"
+                         Padding="2,0,0,0" Width="279"/>
+                </StackPanel>
+
+                <TextBlock Text="Mật khẩu"
+                           Foreground="Black"
+                           FontWeight="Medium"
+                           FontSize="12"
+                           FontFamily="Montserrat"
+                           Margin="0,15,0,0"/>
+                <!--<PasswordBox x:Name="pwbPassWord"
+                         FontFamily="Montserrat"
+                         FontSize="13"
+                         FontWeight="Medium"
+                         Foreground="Black"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,1"
+                         Height="18"
+                         VerticalAlignment="Center"
+                         Margin="0,5,0,0"
+                         Padding="20,0,0,0">
+                    <PasswordBox.Template>
+                        <ControlTemplate TargetType="PasswordBox">
+                            <Grid>
+                                <fa:IconImage Icon="Key" Width="13" Height="13" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                                <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Border>
+                            </Grid>
+                        </ControlTemplate>
+                    </PasswordBox.Template>
+                </PasswordBox>-->
+                <StackPanel Orientation="Horizontal">
+                    <fa:IconImage Icon="Key" Width="13" Height="13" Foreground="Black" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                    <TextBox x:Name="txtMatKhau"
+                         FontFamily="Montserrat"
+                         FontSize="13"
+                         FontWeight="Medium"
+                         Foreground="Black"
+                         CaretBrush="Black"
+                         BorderBrush="Black"
+                         BorderThickness="0,0,0,1"
+                         Padding="2,0,0,0"
+                         Width="297" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"  Visibility="Collapsed" />
+                    <PasswordBox x:Name="pwbPassWord"
+                         FontFamily="Montserrat"
+                         FontSize="13"
+                         FontWeight="Medium"
+                         Foreground="Black"
+                         CaretBrush="Black"
+                         BorderBrush="Black"
+                         BorderThickness="0,0,0,1"
+                         Height="18"
+                         VerticalAlignment="Center"
+                         Padding="2,0,0,0" Width="284"/>
+                </StackPanel>
+
+
+                <!--<Grid>
+                    <TextBox x:Name="txtMatKhau"
+                         FontFamily="Montserrat"
+                         FontSize="13"
+                         FontWeight="Medium"
+                         Foreground="Black"
+                         CaretBrush="LightGray"
+                         BorderBrush="DarkGray"
+                         BorderThickness="0,0,0,1"
+                         Margin="0,5,0,0"
+                         Padding="20,0,0,0"
+                         Visibility="Collapsed" Width="297" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <TextBox.Background>
+                            <ImageBrush ImageSource="\Images\key-16.png"
+                                    Stretch= "Uniform"
+                                    AlignmentX="Left"/>
+                        </TextBox.Background>
+
+                    </TextBox>
+                    
+                </Grid>-->
+
+
+
+
+                <!--<Grid>
+                    <TextBox x:Name="txtMatKhau" 
+                            
+                         Visibility="Collapsed" Width="140" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,5,0,0"  Padding="20,0,0,0"/>
+                </Grid>-->
+                <CheckBox Content="Hiển thị mật khẩu" Foreground="Gray" Width="295" Margin="0,5,5,0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" />
+
+
+                <Button x:Name="btnLogin"
+                    BorderThickness="1"
+                    Content="QUẢN LÝ"
+                    Foreground="White"
+                    FontSize="14"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="2"
+                    Click="btnLogin_Click"
+                    Margin="0,30,0,0"
+                    BorderBrush="#0072BC">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#0072BC"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="290" Height="35" CornerRadius="1"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+
+                                <ContentPresenter VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                                    <ContentPresenter.Resources>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Foreground" Value="#0072BC"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentPresenter.Resources>
+                                </ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name="btnLogin2"
+                    BorderThickness="1"
+                    Content="MÀN HÌNH THU NGÂN"
+                    Foreground="White"
+                    FontSize="14"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                    Grid.Column="2"
+                    Margin="0,5,0,0"
+                    BorderBrush="#F7171E" Click="btnLogin2_Click" 
+                    >       
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#F7171E"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="White"/>
+                                    <Setter Property="Foreground" Value="#F7171E"/>
+                                    <Setter Property="BorderBrush" Value="#F7171E"/>
+                                   
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="290" Height="35" CornerRadius="1"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                               
+                                <ContentPresenter VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                                    <ContentPresenter.Resources>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Foreground" Value="#F7171E"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentPresenter.Resources>
+                                </ContentPresenter>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <TextBlock Text="Quên mật khẩu?"
+                           Foreground="#0072BC"
+                           FontWeight="Medium"
+                           TextWrapping="Wrap"
+                           FontSize="12"
+                           FontFamily="Montserrat"
+                           Margin="5,35,0,10"
+                           />
+
+
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="35,0,345,65">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Images/sss.jpg"/>
+                </StackPanel.Background>
+            </StackPanel>
+        </Grid>
+
+
+    </Border>
+</Window>

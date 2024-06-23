@@ -1,0 +1,322 @@
+﻿<Window x:Class="Login.WindowView.ViewEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login.WindowView"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Title="ThemNhanVien" Height="550" Width="1000" Loaded="Window_Loaded">
+    <Grid Background="White">
+        <!--Các button-->
+        <Button x:Name="btMinimize"
+                    BorderThickness="0"
+                    Content="-"
+                    Foreground="White"
+                    FontSize="16"
+                    FontFamily="Montserrat"
+                    Cursor="Hand"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Right"
+                        Margin="0,13,55,0"
+                    Click="btMinimize_Click">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#0072BC"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#0072BC"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20" CornerRadius="1"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btQuit"
+                    BorderThickness="0"
+                    Content="X"
+                    Foreground="White"
+                    FontSize="12"
+                    FontFamily="Montserrat"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Left"
+                    Cursor="Hand"
+                    Click="btQuit_Click" Margin="955,13,0,0" RenderTransformOrigin="4,0.75">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="Red"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Red"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="20" Height="20" CornerRadius="1"
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center"
+                                              HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+
+
+        <!--Nhập 1-->
+        <TextBlock Margin="15,88,902,0" Height="24"  VerticalAlignment="Top">
+        <Span>Mã nhân viên</Span><Span Foreground="Red">*</Span>
+        </TextBlock>
+        <TextBox x:Name="txtMaNhanVien" 
+                 FontSize="13"                        
+                             Background="White"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+
+                 HorizontalAlignment="Left" Height="18" Margin="103,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBox x:Name="txtTenNhanVien" 
+                             Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                 HorizontalAlignment="Left" Height="18" Margin="103,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"  />
+
+        <Label Content="Số điện thoại   " HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.528,0.234" Height="26"/>
+        <TextBox x:Name="txtSoDienThoai" 
+                 Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                 HorizontalAlignment="Left" Margin="103,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="18"/>
+        <Label Content="Tên tài khoản  " HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top" Height="30" RenderTransformOrigin="0.448,0.465" Width="98" />
+        <TextBox x:Name="txtTenTaiKhoan"
+                 Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                 HorizontalAlignment="Left" Height="18" Margin="103,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <Label Content="Số CMND  " HorizontalAlignment="Left" Margin="10,224,0,0" VerticalAlignment="Top" Height="30" Width="69"/>
+        <TextBox x:Name="txtSoCMND" 
+                 Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                 HorizontalAlignment="Left" Height="18" Margin="103,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <Label Content="Nơi cấp CMND" HorizontalAlignment="Left" Margin="10,254,0,0" VerticalAlignment="Top" Height="28"/>
+        <TextBox x:Name="txtNoiCapCMND" 
+                 Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                            CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                 HorizontalAlignment="Left" Height="18" Margin="103,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <Label Content="Địa chỉ" HorizontalAlignment="Left" Margin="253,144,0,0" VerticalAlignment="Top" Height="26" />
+        <TextBox x:Name="txtDiaChi"
+                 Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                 HorizontalAlignment="Left" Height="18" Margin="340,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+        <TextBlock Margin="258,176,641,0" VerticalAlignment="Top" Height="26"><Span><Run Text="Mật Khẩu"/></Span><Span Foreground="Red"><Run Text="*"/></Span></TextBlock>
+        <StackPanel Width="201" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,180,0,0">
+            <Grid>
+                <PasswordBox x:Name="passwordBox" 
+                             Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                             Width="140" Height="18" Margin="5,0,5,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtMatKhau" 
+                         Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                         Visibility="Collapsed" Width="140" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,0,5,0"/>
+            </Grid>
+            <CheckBox Content="Hiển thị mật khẩu" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked" Width="192"/>
+        </StackPanel>
+
+        <Label Content="Lương" HorizontalAlignment="Left" Margin="255,224,0,0" VerticalAlignment="Top" Height="26" />
+        <TextBox x:Name="txtLuong"
+                 Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             CaretBrush="Gray"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"
+                 Height="18"  Margin="340,226,0,0" Width="140"  HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="true" LostFocus="txtLuong_LostFocus" TextChanged="txtLuong_TextChanged" />
+
+        <TextBlock Margin="15,118,902,0" VerticalAlignment="Top" Height="26" Width="80" HorizontalAlignment="Left"><Span>Tên nhân viên</Span><Span Foreground="Red">*</Span>
+        </TextBlock>
+        <Label Content="Giới tính" HorizontalAlignment="Left" Margin="253,88,0,0" VerticalAlignment="Top" Height="24" Width="83" />
+        <ComboBox x:Name="cmbGioiTinh" HorizontalAlignment="Left" Margin="340,92,0,0" VerticalAlignment="Top" Width="140" Height="20" />
+        <Label Content="Ngày sinh   " HorizontalAlignment="Left" Margin="253,118,0,0" VerticalAlignment="Top" Height="26"/>
+        <DatePicker x:Name="txtNgaySinh" HorizontalAlignment="Left" Margin="340,122,0,0" VerticalAlignment="Top" Width="140" Height="22"/>
+        <Label Content="Trạng thái làm việc         " HorizontalAlignment="Left" Margin="503,88,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.467,0.282" />
+        <ComboBox x:Name="cmbTrangThaiLamViec" HorizontalAlignment="Left" Margin="658,96,0,0" VerticalAlignment="Top" Width="140" Height="20">
+        </ComboBox>
+
+
+        <DatePicker x:Name="txtNgayCap" HorizontalAlignment="Left" Margin="340,258,0,0" VerticalAlignment="Top" Width="140" Height="22"/>
+
+
+        <Label Content="Ngày làm chính thức" HorizontalAlignment="Left" Margin="500,120,0,0" VerticalAlignment="Top" Height="26"/>
+        <DatePicker x:Name="txtNgayLamChinhThuc" HorizontalAlignment="Left" Margin="658,126,0,0" VerticalAlignment="Top" Width="140" Height="22"/>
+        <Image x:Name="pictureBoxSource" HorizontalAlignment="Left" Height="135" Margin="816,92,0,0" VerticalAlignment="Top" Width="100"/>
+        <Image x:Name="pictureBox2Des" HorizontalAlignment="Left" Height="135"  Margin="816,92,0,0" VerticalAlignment="Top" Width="100"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="135" Width="100" Margin="816,92,0,0" VerticalAlignment="Top" />
+        <Label Content="Tổng nhân viên:" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Width="105" FontWeight="DemiBold" Foreground="#0072bc"/>
+        <TextBlock x:Name="txtTongNV" 
+                 FontSize="13"                        
+                             Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             
+
+                 HorizontalAlignment="Left" Margin="116,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" RenderTransformOrigin="0.366,0.559"  />
+        <Button
+            x:Name="btOpen"
+            Command="{Binding LoginCommand}"                            
+            Content="Tải ảnh"                            
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            BorderThickness="0"
+            Foreground="White"
+            VerticalAlignment="Top" Margin="815,232,0,0"
+            Click="btOpenFile" Height="35" Width="102" HorizontalAlignment="Left">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#0072BC"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Height="30"
+                                    CornerRadius="5"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#005389"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+        </Button>
+        <Button
+            x:Name="btHuy"
+            Command="{Binding LoginCommand}"                            
+            Content="Hủy"                            
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            BorderThickness="0"
+            Foreground="White"
+            VerticalAlignment="Bottom" Margin="816,0,44,10"
+            Click="btHuy_Click" Height="36" Width="90" HorizontalAlignment="Right" >
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FF0000"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Height="30"
+                                    CornerRadius="5"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#005389"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button
+            x:Name="btSave"
+            Command="{Binding LoginCommand}"                            
+            Content="Lưu"                            
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            BorderThickness="0"
+            Foreground="White"
+            VerticalAlignment="Bottom" Margin="708,0,152,10"
+            Click="btSave_Click" Height="36" Width="90" HorizontalAlignment="Right" >
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#0072BC"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Height="30"
+                                    CornerRadius="5"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#005389"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Label Content="Ngày cấp" HorizontalAlignment="Left" Margin="255,254,0,0" VerticalAlignment="Top" Height="28"/>
+
+
+
+    </Grid>
+</Window>

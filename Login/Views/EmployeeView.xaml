@@ -1,0 +1,408 @@
+﻿<UserControl x:Class="Login.Views.EmployeeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+             xmlns:local="clr-namespace:Login.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="1000" Loaded="Window_Loaded">
+    <UserControl.Resources>
+        <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="#FF212121"/>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Background" Color="#FFF3F9FF"/>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Border" Color="#FF5593FF"/>
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Glyph" Color="#FF212121"/>
+        <SolidColorBrush x:Key="OptionMark.Pressed.Background" Color="#FFD9ECFF"/>
+        <SolidColorBrush x:Key="OptionMark.Pressed.Border" Color="#FF3C77DD"/>
+        <SolidColorBrush x:Key="OptionMark.Pressed.Glyph" Color="#FF212121"/>
+        <SolidColorBrush x:Key="OptionMark.Disabled.Background" Color="#FFE6E6E6"/>
+        <SolidColorBrush x:Key="OptionMark.Disabled.Border" Color="#FFBCBCBC"/>
+        <SolidColorBrush x:Key="OptionMark.Disabled.Glyph" Color="#FF707070"/>
+        <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="#DAE2EA"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="checkBoxBorder" CornerRadius="3" Padding="1" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                <Grid x:Name="markGrid">
+                                    <Path x:Name="optionMark" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Fill="{StaticResource OptionMark.Static.Glyph}" Margin="1" Opacity="0" Stretch="None"/>
+                                    <Rectangle x:Name="indeterminateMark" Fill="{StaticResource OptionMark.Static.Glyph}" Margin="2" Opacity="0"/>
+                                </Grid>
+                            </Border>
+                            <ContentPresenter x:Name="contentPresenter" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasContent" Value="true">
+                                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                <Setter Property="Padding" Value="4,-1,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="#9575CD"/>
+                                <Setter Property="Fill" TargetName="optionMark" Value="{StaticResource OptionMark.MouseOver.Glyph}"/>
+                                <Setter Property="Fill" TargetName="indeterminateMark" Value="{StaticResource OptionMark.MouseOver.Glyph}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.Disabled.Border}"/>
+                                <Setter Property="Fill" TargetName="optionMark" Value="{StaticResource OptionMark.Disabled.Glyph}"/>
+                                <Setter Property="Fill" TargetName="indeterminateMark" Value="{StaticResource OptionMark.Disabled.Glyph}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="checkBoxBorder" Value="{StaticResource OptionMark.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="checkBoxBorder" Value="#9575CD"/>
+                                <Setter Property="Fill" TargetName="optionMark" Value="{StaticResource OptionMark.Pressed.Glyph}"/>
+                                <Setter Property="Fill" TargetName="indeterminateMark" Value="{StaticResource OptionMark.Pressed.Glyph}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter Property="Opacity" TargetName="optionMark" Value="1"/>
+                                <Setter Property="Opacity" TargetName="indeterminateMark" Value="0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="gridEditButton" TargetType="Button">
+            <Setter Property="Background" Value="#512DA8" />
+            <Setter Property="BorderBrush" Value="#4A148C" />
+            <Setter Property="Foreground" Value="#ffffff" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" Padding="5" BorderThickness="1" CornerRadius="5">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#673AB7" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="gridRemoveButton" TargetType="Button" BasedOn="{StaticResource gridEditButton}">
+            <Setter Property="Background" Value="#D32F2F" />
+            <Setter Property="BorderBrush" Value="#B71C1C" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#F44336" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <Style x:Key="gridButtonIcon" TargetType="fa:IconImage">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="12" />
+            <Setter Property="Height" Value="12" />
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <!--Các button-->
+        <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top" Margin="0,14,169,0" Height="25" HorizontalAlignment="Right" Width="331">
+            <fa:IconImage Icon="Search" Height="20" Width="20" Foreground="#0072BC"/>
+            <TextBox x:Name="txtSearch" Text="Tìm theo tên, mã nhân viên..."  
+                    FontSize="13"
+                         Height="24"
+                           Width="270"
+                             Background="Transparent"
+                             FontWeight="Medium"
+                             FontFamily="Montserrat"                            
+                             Foreground="Gray"
+                             CaretBrush="Black"
+                             BorderBrush="Gray"
+                             BorderThickness="0,0,0,1"                             
+                             VerticalContentAlignment="Center"
+                             GotFocus="tbnSearch_GotFocus" VerticalAlignment="Top"
+                             />
+        </StackPanel>
+        <Button x:Name="btnSearch"
+                            Command="{Binding LoginCommand}"                            
+                            Content="Tìm kiếm"                            
+                            FontSize="12"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            BorderThickness="0"
+                            Foreground="White"
+                    VerticalAlignment="Top"
+                    Click="btSearch" Margin="0,10,95,0" Width="90" Height="30" HorizontalAlignment="Right">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#0072BC"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Height="30"
+                                                    CornerRadius="5"
+                                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#005389"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button
+                x:Name="btAdd"
+                Command="{Binding LoginCommand}"                            
+                Content="Thêm"                            
+                FontSize="12"
+                FontFamily="Montserrat"
+                Cursor="Hand"
+                BorderThickness="0"
+                Foreground="White"
+                VerticalAlignment="Bottom" Margin="10,0,850,14"
+                Click="btAdd_Click" Height="36" Width="90" HorizontalAlignment="Left">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#0072BC"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Height="30"
+                                        CornerRadius="5"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                            HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#005389"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+
+        </Button>
+
+        <Button
+            x:Name="btDelete"
+            Command="{Binding LoginCommand}"                            
+            Content="Xóa"                            
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            BorderThickness="0"
+            Foreground="White"
+            VerticalAlignment="Bottom" Margin="109,0,751,14"
+            Click="btDelete_Click" Height="36" Width="90" HorizontalAlignment="Left" >
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#0072BC"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Height="30"
+                                    CornerRadius="5"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#005389"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+
+
+        <!--Nhập 1-->
+        <Border
+                Background="#F0F8FF" 
+                CornerRadius="5" 
+                Padding="10" Margin="0,60,0,51">
+            <DataGrid  Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}"
+                x:Name="dgNhanVien" AutoGenerateColumns="False" RowHeaderWidth="0" GridLinesVisibility="None" ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  Background="#F0F8FF" ItemsSource="{Binding products}" CanUserAddRows="False" 
+                  BorderThickness="0" SelectionChanged="dgNhanVien_SelectionChanged" Margin="0,0,0,-10">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn CanUserResize="False" Width="Auto">
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox Style="{StaticResource CheckBoxStyle1}" x:Name="chkSelectAll" IsChecked="{Binding IsAllSelected}" Checked="chkSelectAll_Checked" Unchecked="chkSelectAll_Unchecked"/>
+
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox x:Name="dg" Unchecked="dg_Unchecked" Checked="dg_Checked" Style="{StaticResource CheckBoxStyle1}" IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellTemplate>
+
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="" IsReadOnly="True" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+
+                                    <Button x:Name="btedit" Background="#2980b9" Margin="5 0 0 0" Style="{StaticResource gridEditButton}" Click="btedit_Click">
+                                        <fa:IconImage Icon="PenToSquare" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                    <Button x:Name="btxoale" Margin="6 0 0 0" Style="{StaticResource gridRemoveButton}" Click="btxoale_Click">
+                                        <fa:IconImage Icon="Trash" Foreground="White" Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="" IsReadOnly="True" Width="90">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Width="45" Height="50">
+                                    <Ellipse Width="45" Height="45" Stroke="Gray" StrokeThickness="0.5">
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding Path=anhImage}" Stretch="UniformToFill"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Mã nhân viên" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding manv}"/>
+                    <DataGridTextColumn Header="Tên nhân viên" IsReadOnly="True" CanUserResize="False" Width="150" Binding="{Binding tennv}"/>
+                    <DataGridTextColumn Header="Tài khoản" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding tk}"/>
+                    <DataGridTextColumn Header="Trạng thái làm việc" IsReadOnly="True" CanUserResize="False" Width="170" Binding="{Binding trangthailv}"/>
+                    <DataGridTextColumn Header="Giới tính" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding gt}"/>
+                    <DataGridTextColumn Header="SĐT" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding sdt}"/>
+                    <DataGridTextColumn Header="Ngày sinh" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding ngaysinh.Date, StringFormat=dd/MM/yyyy}"/>
+                    <DataGridTextColumn Header="Địa chỉ" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding diachi}"/>
+                    <DataGridTextColumn Header="Số CCCD" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding cccd}"/>
+                    <DataGridTextColumn Header="Nơi cấp" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding noicap}"/>
+                    <DataGridTextColumn Header="Ngày cấp" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding ngaycap.Date, StringFormat=dd/MM/yyyy}"/>
+                    <DataGridTextColumn Header="Ngày làm việc chính thức" IsReadOnly="True" CanUserResize="False" Width="140" Binding="{Binding ngaylvct.Date, StringFormat=dd/MM/yyyy}"/>
+                    <DataGridTextColumn Header="Lương" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding luong, StringFormat={}{0:N0}đ}"/>
+                    <DataGridTextColumn Header="Ảnh" IsReadOnly="True" CanUserResize="False" Width="120" Binding="{Binding anh}"/>
+
+
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            
+        </Border>
+        <Label Content="Tổng nhân viên:" HorizontalAlignment="Left" Margin="11,10,0,0" VerticalAlignment="Top" Width="105" FontWeight="DemiBold" Foreground="#0072bc"/>
+        <TextBlock x:Name="txtTongNV" 
+                 FontSize="13"                        
+                             Background="Transparent"
+                             FontWeight="Normal"
+                             FontFamily="Montserrat"
+                             
+
+                 HorizontalAlignment="Left" Margin="116,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" RenderTransformOrigin="0.366,0.559"  />
+        <Button
+            x:Name="btHuy"
+            Command="{Binding LoginCommand}"                            
+            Content="Hủy"                            
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            BorderThickness="0"
+            Foreground="White"
+            VerticalAlignment="Bottom" Margin="816,0,44,10"
+            Click="btHuy_Click" Height="36" Width="90" HorizontalAlignment="Right" >
+
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#FF0000"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Height="30"
+                                    CornerRadius="5"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#005389"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <Button x:Name="btUpdate"
+        Command="{Binding LoginCommand}"                            
+        FontSize="12"
+        FontFamily="Montserrat"
+        Cursor="Hand"
+        BorderThickness="0"
+        Foreground="White"
+        VerticalAlignment="Top"
+        Click="btUpdate_Click" Margin="0,10,54,0" Height="30" Width="30" HorizontalAlignment="Right">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#0072BC"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="30" Height="30" CornerRadius="15" Background="{TemplateBinding Background}">
+                                    <Grid>
+                                        <fa:IconImage Icon="Rotate" Width="16" Height="16" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#005389"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+
+
+    </Grid>
+
+</UserControl>
