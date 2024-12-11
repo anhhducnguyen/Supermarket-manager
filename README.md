@@ -1,6 +1,8 @@
 # Building Sales Software for Mini Supermarket
 Proposing a solo project to develop a modern POS management software for NAC Mini Mart. The software will include features for efficient inventory management, user-friendly sales interface, comprehensive financial tools, customer information management, and employee management. This project aims to enhance operational efficiency and optimize business performance for NAC Mini Mart.
 
+[Report](https://docs.google.com/document/d/17dKhI3Ow2ZqStrbaIOAUEe8eQeYpv_y0/edit?usp=drive_link&ouid=109210913742492563743&rtpof=true&sd=true)
+
 ## Supermarket Management Application Installation Instructions
 ### Prerequisites
 Before you begin, ensure you have the following software installed:
@@ -26,8 +28,6 @@ Before you begin, ensure you have the following software installed:
    Open `SQL Server Management Studio` (SSMS) and connect to your SQL Server instance.
    
    Create a new database by executing an SQL command [Create Database](https://github.com/Burhan-Q/ultralytics/edit/main/README.md)
-
-[Report & Slides](https://docs.google.com/document/d/17dKhI3Ow2ZqStrbaIOAUEe8eQeYpv_y0/edit?usp=drive_link&ouid=109210913742492563743&rtpof=true&sd=true)
 
 ## User Manual
 
