@@ -27,6 +27,8 @@ Before you begin, ensure you have the following software installed:
    
    Create a new database by executing an SQL command [Create Database](https://github.com/Burhan-Q/ultralytics/edit/main/README.md)
 
+[Report & Slides](https://docs.google.com/document/d/17dKhI3Ow2ZqStrbaIOAUEe8eQeYpv_y0/edit?usp=drive_link&ouid=109210913742492563743&rtpof=true&sd=true)
+
 ## User Manual
 
 ## Features of the Supermarket Management Application
