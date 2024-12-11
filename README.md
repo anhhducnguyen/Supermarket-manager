@@ -79,6 +79,10 @@ Allows managers to add, delete, search by employee name, code, and save employee
 
 <img src="https://github.com/user-attachments/assets/25a5ef03-83a5-4841-83d9-fe2ff2af1cae" width="800" alt="Employee manager" />
 
+#### Giao diện trang quản lý sản phẩm
+
+<img src="https://github.com/user-attachments/assets/037ba659-a82d-4133-a640-624d93b31e0b" width="800" alt="Employee manager" />
+
 #### Giao diện hóa đơn sau khi in
 
 ![image](https://github.com/user-attachments/assets/9dcd0c74-cac8-4011-a2c9-6c61e1070fe2)
