@@ -75,6 +75,22 @@ Allows managers to add, delete, search by employee name, code, and save employee
 
 <img src="https://github.com/AnhNguyen7303/report/blob/main/image/EmployeeAdmin.png" width="800" alt="Employee manager" />
 
+##### Giao diện trang chi tiết thông tin nhân viên
+
+<img src="https://github.com/user-attachments/assets/25a5ef03-83a5-4841-83d9-fe2ff2af1cae" width="800" alt="Employee manager" />
+
+#### Giao diện hóa đơn sau khi in
+
+![image](https://github.com/user-attachments/assets/9dcd0c74-cac8-4011-a2c9-6c61e1070fe2)
+
+#### Giao diện lịch sử giao dịch hóa đơn
+
+<img src="https://github.com/user-attachments/assets/ed367962-c599-4eed-bc7a-e2e926a2f3b0" width="800" alt="Employee manager" />
+
+
+
+
+
 #### Sales staff
 ##### Sales
 
